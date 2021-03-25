@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 
 //Components
 import QuestionCard from './components/QuestionCard';
@@ -82,37 +82,37 @@ const App = () => {
       <Wrapper>
         <div className="box1">
           <div className="box2">
-            <h1> React Quiz App </h1>
+            <h1> React | Quiz App </h1>
           </div>
         </div>
 
-        { gameOver || userAnswers.length === TOTAL_QUESTIONS ? (
+        {gameOver || userAnswers.length === TOTAL_QUESTIONS ? (
           <button className="start" onClick={startTrivia}>
             Start
           </button>
-        ) : null }
+        ) : null}
 
-        { !gameOver ? <p className="score"> Score: {score} </p> : null }
+        {!gameOver ? <p className="score"> Score: {score} </p> : null}
 
-        { loading && <p> Loading Questions... </p> }
+        {loading && <p> Loading Questions... </p>}
 
-        { !loading && !gameOver && (
-            <QuestionCard
-              questionNr = { number + 1 }
-              totalQuestions = { TOTAL_QUESTIONS }
-              question = { questions[number].question }
-              answers = { questions[number].answers }
-              userAnswer = { userAnswers ? userAnswers[number] : undefined }
-              callback = { checkAnswer }
-            />
+        {!loading && !gameOver && (
+          <QuestionCard
+            questionNr={number + 1}
+            totalQuestions={TOTAL_QUESTIONS}
+            question={questions[number].question}
+            answers={questions[number].answers}
+            userAnswer={userAnswers ? userAnswers[number] : undefined}
+            callback={checkAnswer}
+          />
         )}
 
-        { !gameOver &&
+        {!gameOver &&
           !loading &&
           userAnswers.length === number + 1 &&
-          number !== TOTAL_QUESTIONS -1 ? (
+          number !== TOTAL_QUESTIONS - 1 ? (
             <button className="next" onClick={nextQuestion}> Next Question </button>
-          ) : null }
+          ) : null}
       </Wrapper>
     </>
   );
